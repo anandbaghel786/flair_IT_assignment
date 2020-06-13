@@ -1,0 +1,42 @@
+<div style="height: auto; background: white;">
+  <div class="row">
+    <div class="col-md-12" style="min-height: 3rem;
+    padding: 2rem;">
+      <a class="header-button" [routerLink]="'/product-create'" routerLinkActive="active">
+        Register Product
+      </a>
+
+    </div>
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Type</th>
+              <th scope="col">Color</th>
+              <th scope="col">Stock Unit</th>
+              <th scope="col">SKU</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productService.allProduct; let i=index; ">
+              <td>{{product.id}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.type}}</td>
+              <td>{{product.color}}</td>
+              <td>{{product.stock_unit}}</td>
+              <td>{{product.sku}}</td>
+              <td>
+                <button class="btn btn-primary " (click)="isEditMode=true; setData(i, product) ">Edit</button>
+                <button class="btn btn-primary ml-2 " (click)="deleteProduct(i, product) ">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

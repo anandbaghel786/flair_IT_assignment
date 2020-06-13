@@ -1,0 +1,33 @@
+.bg-dark {
+  background-color: #816f30 !important;
+}
+
+.body-bg {
+  padding: 0 2rem;
+}
+
+.toolbar .ul-ele {
+  /* margin-left: 20rem; */
+}
+
+.toolbar .ul-ele a {
+  margin-left: 2rem;
+  color: white;
+}
+
+.toolbar .ul-ele a:active {
+  color: red;
+}
+
+.toolbar .ul-ele a:visited {
+  color: orange;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.tang-font li {
+  font-size: 2rem;
+    font-weight: bold;
+}

@@ -1,0 +1,22 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-image: url("assets/images/bodybg.jpg");
+}
+
+.tang-font {
+  font-family: 'Tangerine', serif;
+}
+
+.form-group>label {
+  color: white;
+}
+
+.invalid-feedback {
+  color: #fff82b;
+  font-size: 1rem;
+}
+
+.form-control.is-invalid {
+  border: 2px solid #ff3723;
+}

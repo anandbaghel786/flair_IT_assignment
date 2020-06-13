@@ -1,0 +1,184 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <a href="p"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]='myForm' novalidate class="form">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" class="form-control" onkeypress='return ((event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 8) || (event.charCode == 32))'
+                [ngClass]="{ 'is-invalid': f.name.touched &&  f.name.errors }" formControlName="name">
+              <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Age</label>
+              <input type="text" class="form-control" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [ngClass]="{ 'is-invalid': f.age.touched &&  f.age.errors }"
+                formControlName="age">
+              <div *ngIf="f.age.touched && f.age.errors" class="invalid-feedback">
+                <div *ngIf="f.age.errors.required">Age is required</div>
+                <div *ngIf="f.age.errors.min">Age must be minmum 18.</div>
+                <div *ngIf="f.age.errors.max">Age must be maxmum 50.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Designation</label>
+              <input type="text" class="form-control" onkeypress='return ((event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 8) || (event.charCode == 32))'
+                [ngClass]="{ 'is-invalid': f.designation.touched &&  f.designation.errors }" formControlName="designation">
+              <div *ngIf="f.designation.touched && f.designation.errors" class="invalid-feedback">
+                <div *ngIf="f.designation.errors.required">Designation is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched &&  f.email.errors }" formControlName="email"
+                required>
+              <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Invalid email.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="text" class="form-control" maxlength="25" [ngClass]="{ 'is-invalid': f.password.touched &&  f.password.errors }"
+                formControlName="password">
+              <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password should have 8 to 25 characters.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Phone</label>
+              <input type="text" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [ngClass]="{ 'is-invalid': f.phone.touched &&  f.phone.errors }"
+                formControlName="phone">
+              <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">Phone is required</div>
+                <div *ngIf="f.phone.errors.pattern">Invalid phone number.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div formArrayName="skilldetail" style="border: 2px solid white;
+                padding: 15px;">
+                  <div *ngFor="let item of myForm.get('skilldetail').controls; let i = index;" [formGroupName]="i">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="">Exam name</label>
+                          <input type="text" class="form-control" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('exam').touched &&  myForm.get('skilldetail').controls[i].get('exam').errors }"
+                            formControlName="exam">
+                          <div *ngIf="myForm.get('skilldetail').controls[i].get('exam').touched && myForm.get('skilldetail').controls[i].get('exam').errors"
+                            class="invalid-feedback">
+                            <div *ngIf="myForm.get('skilldetail').controls[i].get('exam').errors.required">Exam name is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="">Marks</label>
+                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('marks').touched &&  myForm.get('skilldetail').controls[i].get('marks').errors }"
+                            formControlName="marks">
+                          <div *ngIf="myForm.get('skilldetail').controls[i].get('marks').touched && myForm.get('skilldetail').controls[i].get('marks').errors"
+                            class="invalid-feedback">
+                            <div *ngIf="myForm.get('skilldetail').controls[i].get('marks').errors.required">Marks is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="">Total Marks</label>
+                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('totalmarks').touched &&  myForm.get('skilldetail').controls[i].get('totalmarks').errors }"
+                            formControlName="totalmarks">
+                          <div *ngIf="myForm.get('skilldetail').controls[i].get('totalmarks').touched && myForm.get('skilldetail').controls[i].get('totalmarks').errors"
+                            class="invalid-feedback">
+                            <div *ngIf="myForm.get('skilldetail').controls[i].get('totalmarks').errors.required">Total Marks is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3 d-flex" style="justify-content: space-evenly;
+                      align-items: center;
+                      padding-top: 1rem;">
+                        <button class="btn btn-success" (click)="addItem()">add</button>
+                        <button class="btn btn-success" (click)="removeAddress(i)" [hidden]="myForm.get('skilldetail').controls.length==1">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-around; margin: 1rem;">
+          <button class="btn btn-primary" type="button" *ngIf="!isEditMode" (click)="submit()">Submit</button>
+          <button class="btn btn-primary" type="button" *ngIf="isEditMode" (click)="update()">Update</button>
+        </div>
+      </form>
+    </div>
+    <!-- <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="search by name" name="byname" [(ngModel)]="byname">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="search by name" name="byemail" [(ngModel)]="byemail">
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="filterData()">Search</button>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Designation</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employees; let i=index;">
+                  <td>{{employee.name}}</td>
+                  <td>{{employee.age}}</td>
+                  <td>{{employee.designation}}</td>
+                  <td>{{employee.email}}</td>
+                  <td>{{employee.phone}}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="isEditMode=true; setData(i)">Edit</button>
+                    <button class="btn btn-primary ml-2" (click)="delete(i)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

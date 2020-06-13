@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "userid": 1,
+      "username": "Ramesh Gupta",
+      "age": 21,
+      "gender": "male",
+      "email": "rameshgupta@gmail.com",
+      "password": "12345678",
+      "phone": "5464458585",
+      "skilldetail": [
+        {
+          "exam": "",
+          "marks": 55,
+          "totolmarks": 100
+        }
+      ]
+    }
+  ]
+}

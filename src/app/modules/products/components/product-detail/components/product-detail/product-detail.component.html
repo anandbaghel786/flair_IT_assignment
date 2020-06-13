@@ -1,0 +1,68 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <a class="header-button" [routerLink]="'/products'" routerLinkActive="active">
+        Back
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]='productForm' novalidate class="form">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted &&  f.name.errors }" formControlName="name">
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Type</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted &&  f.type.errors }" formControlName="type">
+              <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">Type is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Color</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted &&  f.color.errors }" formControlName="color">
+              <div *ngIf="submitted && f.color.errors" class="invalid-feedback">
+                <div *ngIf="f.color.errors.required">Color is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Stock Unit</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted &&  f.stock_unit.errors }" formControlName="stock_unit">
+              <div *ngIf="submitted && f.stock_unit.errors" class="invalid-feedback">
+                <div *ngIf="f.stock_unit.errors.required">Stock Unit is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">SKU</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted &&  f.sku.errors }" formControlName="sku">
+              <div *ngIf="submitted && f.sku.errors" class="invalid-feedback">
+                <div *ngIf="f.sku.errors.required">SKU is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="button" *ngIf="!isEditMode" (click)="createProduct()">Submit</button>
+        <button class="btn btn-primary" type="button" *ngIf="isEditMode" (click)="updateProduct()">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
