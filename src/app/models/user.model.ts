@@ -6,7 +6,7 @@ export class User {
   email: String;
   password: String;
   phone: Number;
-  education: [
+  skilldetail: [
     {
       exam: String;
       marks: Number;

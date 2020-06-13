@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { ServicesService } from '../../services.service';
+import { AppService } from '../../../../app.service';
 
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.css']
 })
-export class UserDashboardComponent implements OnInit {
+export class UserDashboardComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
+  currentUserProfile: any = {};
   skilldetail: FormArray;
   submitted = false;
   public empIndex: any;
@@ -15,11 +18,20 @@ export class UserDashboardComponent implements OnInit {
   public byname: String = "";
   public byemail: String = "";
   public isEditMode: boolean = false;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private appService: AppService) {
 
   }
 
+  ngAfterViewInit() {
+    // this.currentUserProfile = this.appService.currentUserProfile;
+  }
+
   ngOnInit() {
+    setTimeout(() => {
+
+    }, 1000);
+
+    console.log(this.appService.currentUserProfile)
     this.employees = JSON.parse(localStorage.getItem("employees")) ? JSON.parse(localStorage.getItem("employees")) : [];
     this.myForm = this.formBuilder.group({
       name: ["", Validators.required],
@@ -33,7 +45,6 @@ export class UserDashboardComponent implements OnInit {
 
     }
     )
-    console.log(this.employees)
   }
 
   get f() { return this.myForm.controls; }
