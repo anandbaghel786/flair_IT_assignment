@@ -7,14 +7,6 @@
       "color": "black",
       "stock_unit": "12",
       "sku": "32321sdfsdfss"
-    },
-    {
-      "id": 6,
-      "name": "abc",
-      "type": "ddd",
-      "color": "new",
-      "stock_unit": "555",
-      "sku": "65s46f"
     }
   ]
 }
