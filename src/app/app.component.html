@@ -29,7 +29,7 @@
                 <i class="fa fa-home"></i>
               </a>
               <button class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModal" (click)="loginForm.reset();" *ngIf="!userLoggedIn">Login</button>
-              <button class="btn btn-success ml-2" *ngIf="!userLoggedIn" (click)="registerUser();">Register</button>
+              <!-- <button class="btn btn-success ml-2" *ngIf="!userLoggedIn" (click)="registerUser();">Register</button> -->
               <a type="button" style="color: white; cursor: pointer; font-size: 1.2rem; font-weight: bold;" (click)="logout();" *ngIf="userLoggedIn">
                 <i class="fa fa-sign-out mr-1"></i>Logout</a>
             </div>
