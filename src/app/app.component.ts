@@ -18,7 +18,6 @@ import { ToastrService } from 'ngx-toastr';
 export class AppComponent implements OnInit {
   title = 'anguar';
   public userLoggedIn: boolean = false;
-
   public userNotAuth: boolean = false;
   public currentUser: Array<User>;
   public token: String = "";
