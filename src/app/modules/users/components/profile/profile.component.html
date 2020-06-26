@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <form [formGroup]='myForm' novalidate class="form">
+      <form [formGroup]='userForm' novalidate class="form">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -84,46 +84,46 @@
               <div class="col-md-12">
                 <div formArrayName="skilldetail" style="border: 2px solid white;
                 padding: 15px;">
-                  <div *ngFor="let item of myForm.get('skilldetail').controls; let i = index;" [formGroupName]="i">
+                  <div *ngFor="let item of userForm.get('skilldetail').controls; let i = index;" [formGroupName]="i">
                     <div class="row">
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="">Exam name</label>
-                          <input type="text" class="form-control" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('exam').touched &&  myForm.get('skilldetail').controls[i].get('exam').errors }"
+                          <input type="text" class="form-control" [ngClass]="{ 'is-invalid': userForm.get('skilldetail').controls[i].get('exam').touched &&  userForm.get('skilldetail').controls[i].get('exam').errors }"
                             formControlName="exam">
-                          <div *ngIf="myForm.get('skilldetail').controls[i].get('exam').touched && myForm.get('skilldetail').controls[i].get('exam').errors"
+                          <div *ngIf="userForm.get('skilldetail').controls[i].get('exam').touched && userForm.get('skilldetail').controls[i].get('exam').errors"
                             class="invalid-feedback">
-                            <div *ngIf="myForm.get('skilldetail').controls[i].get('exam').errors.required">Exam name is required</div>
+                            <div *ngIf="userForm.get('skilldetail').controls[i].get('exam').errors.required">Exam name is required</div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="">Marks</label>
-                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('marks').touched &&  myForm.get('skilldetail').controls[i].get('marks').errors }"
+                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': userForm.get('skilldetail').controls[i].get('marks').touched &&  userForm.get('skilldetail').controls[i].get('marks').errors }"
                             formControlName="marks">
-                          <div *ngIf="myForm.get('skilldetail').controls[i].get('marks').touched && myForm.get('skilldetail').controls[i].get('marks').errors"
+                          <div *ngIf="userForm.get('skilldetail').controls[i].get('marks').touched && userForm.get('skilldetail').controls[i].get('marks').errors"
                             class="invalid-feedback">
-                            <div *ngIf="myForm.get('skilldetail').controls[i].get('marks').errors.required">Marks is required</div>
+                            <div *ngIf="userForm.get('skilldetail').controls[i].get('marks').errors.required">Marks is required</div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="">Total Marks</label>
-                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': myForm.get('skilldetail').controls[i].get('totalmarks').touched &&  myForm.get('skilldetail').controls[i].get('totalmarks').errors }"
+                          <input type="number" class="form-control" maxlength="5" [ngClass]="{ 'is-invalid': userForm.get('skilldetail').controls[i].get('totalmarks').touched &&  userForm.get('skilldetail').controls[i].get('totalmarks').errors }"
                             formControlName="totalmarks">
-                          <div *ngIf="myForm.get('skilldetail').controls[i].get('totalmarks').touched && myForm.get('skilldetail').controls[i].get('totalmarks').errors"
+                          <div *ngIf="userForm.get('skilldetail').controls[i].get('totalmarks').touched && userForm.get('skilldetail').controls[i].get('totalmarks').errors"
                             class="invalid-feedback">
-                            <div *ngIf="myForm.get('skilldetail').controls[i].get('totalmarks').errors.required">Total Marks is required</div>
+                            <div *ngIf="userForm.get('skilldetail').controls[i].get('totalmarks').errors.required">Total Marks is required</div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-3 d-flex" style="justify-content: space-evenly;
                       align-items: center;
                       padding-top: 1rem;">
-                        <button class="btn btn-success" (click)="addItem()">add</button>
-                        <button class="btn btn-success" (click)="removeAddress(i)" [hidden]="myForm.get('skilldetail').controls.length==1">Remove</button>
+                        <button class="btn btn-success" (click)="removeAddress(i)" [hidden]="userForm.get('skilldetail').controls.length==1">Remove</button>
+                        <button class="btn btn-success" (click)="addItem()" [hidden]="userForm.get('skilldetail').controls.length-1>i">add</button>
                       </div>
                     </div>
                   </div>
@@ -133,8 +133,8 @@
           </div>
         </div>
         <div style="display: flex; justify-content: space-around; margin: 1rem;">
-          <button class="btn btn-primary" type="button" *ngIf="!isEditMode" (click)="submit()">Submit</button>
-          <button class="btn btn-primary" type="button" *ngIf="isEditMode" (click)="update()">Update</button>
+          <button class="btn btn-primary" type="button" *ngIf="!isEditMode" (click)="createUser()">Submit</button>
+          <button class="btn btn-primary" type="button" *ngIf="isEditMode" (click)="updateUser()">Update</button>
         </div>
       </form>
     </div>

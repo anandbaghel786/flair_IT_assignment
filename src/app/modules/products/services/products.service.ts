@@ -11,7 +11,7 @@ const headerOption = {
 @Injectable()
 export class ProductsService {
   allProduct: Product[];
-  mockUrl: string = 'http://localhost:3001/products';
+  mockUrl: string = 'http://localhost:3000/products';
   public currentProduct: Product = {
     id: null,
     name: "",

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { ServicesService } from '../../services.service';
+import { UsersService } from '../../users.service';
 import { AppService } from '../../../../app.service';
 
 @Component({
@@ -139,7 +139,9 @@ export class UserDashboardComponent implements OnInit, AfterViewInit {
       this.myForm.reset();
       this.submitted = false;
     }
+  }
 
+  public setUserData() {
 
   }
 
